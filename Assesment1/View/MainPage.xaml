@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assesment1.MainPage">
+
+    <ScrollView>
+        
+            <StackLayout BackgroundColor="#6899EF"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         Padding="15">
+                <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                                     HorizontalOptions="CenterAndExpand">
+                    <Label x:Name="labelQuiz"
+                           Text="Quiz"
+                           FontSize="40"
+                           HorizontalTextAlignment="Center"
+                           TextColor="White"
+                           FontFamily="TinyAngels"/>
+                    <Frame BackgroundColor="White"
+                           CornerRadius="20"
+                           VerticalOptions="Center"
+                           Margin="0,40,0,0">
+                        <StackLayout Spacing="20">
+
+                            <Entry x:Name="entryPlayerName"
+                                   Placeholder="Player name"
+                                   FontSize="18"
+                                   FontFamily="HomeMadeSausage"
+                                   HorizontalTextAlignment="Start"/>
+                            
+                            <Button x:Name="buttonSubmitMainScreen"
+                                    Text="Submit"
+                                    FontFamily="HomeMadeSausage"
+                                    Padding="10"
+                                    FontSize="20"
+                                    BackgroundColor="LightCoral"
+                                    CornerRadius="30"
+                                    Clicked="ButtonSubmit_Clicked"/>
+                            
+                        </StackLayout>
+                    </Frame>
+                </VerticalStackLayout>
+
+            </StackLayout>
+       
+    </ScrollView>
+
+</ContentPage>

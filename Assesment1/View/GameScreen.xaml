@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assesment1.View.GameScreen"
+             xmlns:viewModel="clr-namespace:Assesment1.ViewModel">
+    <NavigationPage.TitleView >
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="FillAndExpand">
+            <Label x:Name="labelTitleQuiz"
+                   Text="Quiz"
+                   VerticalOptions="CenterAndExpand"
+                   FontSize="24"
+                   FontFamily="HomeMadeSausage"
+                   TextColor="White"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <viewModel:GameViewModel/>
+    </ContentPage.BindingContext>
+   
+    <ScrollView>
+        <StackLayout Padding="20"
+                     Spacing="5">
+
+            <StackLayout Orientation="Horizontal"
+                         Margin="0,20,0,0">
+                <HorizontalStackLayout Spacing="5"
+                                       HorizontalOptions="StartAndExpand">
+                    <Label x:Name="labelQuestion"
+                       Text="Question"
+                       FontFamily="WinkleRegular"
+                       FontSize="28"
+                       TextColor="#FF8152"
+                       VerticalTextAlignment="Center"/>
+                    <Label x:Name="labelTotalQuestion"
+                       Text="{Binding QuestionNumber}"
+                       FontFamily="WinkleRegular"
+                       FontSize="28"
+                       TextColor="#FF8152"
+                       VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="5"
+                                       HorizontalOptions="EndAndExpand">
+                    <Label x:Name="labelPoints"
+                       Text="Points:"
+                       FontFamily="WinkleRegular"
+                       FontSize="28"
+                       TextColor="#67A3A5"
+                       VerticalTextAlignment="Center"/>
+                    <Label x:Name="labelTotalPonts"
+                       Text="{Binding TotalPoints}"
+                       FontFamily="WinkleRegular"
+                       FontSize="28"
+                       TextColor="#FF8152"
+                       VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </StackLayout>
+            <ProgressBar x:Name="progressBarQuestionProgress"
+                         Progress="{Binding ProgressQuestionValue}"
+                         ProgressColor="#6AA4A6"/>
+            <Label x:Name="labelQuestions"
+                   Text="{Binding Question}"
+                   Margin="0,20,0,0"
+                   FontFamily="HomeMadeSausage"
+                   FontSize="28"
+                   HorizontalOptions="FillAndExpand"
+                   TextColor="#493E8D"/>
+            <VerticalStackLayout Margin="0,20,0,0"
+                                 Spacing="15"
+                                 VerticalOptions="FillAndExpand">
+                <RadioButton x:Name="radtionButtonQuestion1"
+                         Content="{Binding Option1}"
+                         IsChecked="{Binding IsAnswer1Checked}"
+                         FontSize="24"
+                         FontFamily="HomeMadeSausage"
+                         BorderWidth="1"
+                         HeightRequest="55"
+                         CornerRadius="10"
+                         BorderColor="DarkGray"
+                         GroupName="Answers"
+                             TextColor="{Binding TextColor1}"
+                             BackgroundColor="{Binding BackgroundColor1}"
+                         CheckedChanged="RadtionButtonAnswers_CheckedChanged"/>
+
+                <RadioButton x:Name="radtionButtonQuestion2"
+                         Content="{Binding Option2}"
+                         IsChecked="{Binding IsAnswer2Checked}"
+                         FontSize="24"
+                         FontFamily="HomeMadeSausage"
+                         BorderWidth="1"
+                         HeightRequest="55"
+                         CornerRadius="10"
+                         BorderColor="DarkGray"
+                         GroupName="Answers"
+                             TextColor="{Binding TextColor2}"
+                             BackgroundColor="{Binding BackgroundColor2}"
+                         CheckedChanged="RadtionButtonAnswers_CheckedChanged"/>
+
+
+                <RadioButton x:Name="radtionButtonQuestion3"
+                         Content="{Binding Option3}"
+                         IsChecked="{Binding IsAnswer3Checked}"
+                         FontSize="24"
+                         FontFamily="HomeMadeSausage"
+                         BorderWidth="1"
+                         HeightRequest="55"
+                         CornerRadius="10"
+                         BorderColor="DarkGray"
+                         GroupName="Answers"
+                             TextColor="{Binding TextColor3}"
+                             BackgroundColor="{Binding BackgroundColor3}"
+                         CheckedChanged="RadtionButtonAnswers_CheckedChanged"/>
+
+
+                <RadioButton x:Name="radtionButtonQuestion4"
+                         Content="{Binding Option4}"
+                         IsChecked="{Binding IsAnswer4Checked}"
+                         FontSize="24"
+                         FontFamily="HomeMadeSausage"
+                         BorderWidth="1"
+                         HeightRequest="55"
+                         CornerRadius="10"
+                         BorderColor="DarkGray"
+                         GroupName="Answers"
+                             TextColor="{Binding TextColor4}"
+                             BackgroundColor="{Binding BackgroundColor4}"
+                         CheckedChanged="RadtionButtonAnswers_CheckedChanged"/>
+              
+
+                <Label x:Name="labelTotalAttempts"
+                   Text="{Binding TotalAttempts}"
+                   TextColor="LightCoral"
+                   FontSize="20"
+                   FontFamily="HomeMadeSausage"
+                   Margin="0,15,0,0"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+
+            <Button x:Name="buttonSubmitAnswer"
+                    Text="Submit"
+                    Command="{Binding SubmitAnswer}"
+                    FontFamily="HomeMadeSausage"
+                    Padding="10"
+                    FontSize="20"
+                    CornerRadius="30"
+                    VerticalOptions="End"
+                    IsEnabled="{Binding IsButtonEnabled}">
+            </Button>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

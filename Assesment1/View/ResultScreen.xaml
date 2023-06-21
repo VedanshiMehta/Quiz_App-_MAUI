@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assesment1.View.ResultScreen"
+             xmlns:viewModel="clr-namespace:Assesment1.ViewModel">
+    <NavigationPage.TitleView >
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="FillAndExpand">
+            <Label x:Name="_labelTitleQuizResult"
+                   Text="Quiz"
+                   VerticalOptions="CenterAndExpand"
+                   FontSize="24"
+                   FontFamily="HomeMadeSausage"
+                   TextColor="White"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <viewModel:ResultViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout  BackgroundColor="#B0DBE8">
+            <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Spacing="10">
+                <Image x:Name="imageResult"
+                   Source="{Binding Source}"
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   HorizontalOptions="Center"/>
+                <Label x:Name="labelResultStatus"
+                   Text="{Binding ResultStatus}"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#FF8355"
+                   FontFamily="HomeMadeSausage"
+                   FontSize="40"
+                   CharacterSpacing="3"/>
+                <Label x:Name="labelPlayerName"
+                      Text="{Binding Name}"
+                      HorizontalOptions="FillAndExpand"
+                      HorizontalTextAlignment="Center"
+                      TextColor="#6899EF"
+                      FontFamily="HomeMadeSausage"
+                      FontSize="28"/>
+                <HorizontalStackLayout Spacing="5"
+                                       HorizontalOptions="Center">
+                    <Label x:Name="labelYourPoints"
+                           Text="Your Points:"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#9D37CF"
+                           FontFamily="Christmas"
+                           FontSize="30"
+                           CharacterSpacing="2"/>
+                    <Label x:Name="labelPoints"
+                           Text="{Binding Points}"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#9D37CF"
+                           FontFamily="Christmas"
+                           FontSize="30"
+                           CharacterSpacing="2"/>
+                </HorizontalStackLayout>
+                <Button x:Name="buttonReplay"
+                        Text="Replay"
+                        FontFamily="HomeMadeSausage"
+                        Padding="10"
+                        FontSize="24"
+                        BackgroundColor="#6899EF"
+                        CornerRadius="30"
+                        Margin="5,20,5,0"
+                        Clicked="ButtonReplay_Clicked"/>
+            </VerticalStackLayout>
+           
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
